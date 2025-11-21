@@ -16,7 +16,7 @@ export const BookList = ({ initialBooks }: BookListProps) => {
     const newBook: Book = {
       id: `book-${Date.now()}`,
       title: `New Book ${books.length + 1}`,
-      description: "This is a newly added book. Click edit to customize the details and make it your own!",
+      description: "",
       author: "Unknown Author",
     };
 
@@ -24,31 +24,33 @@ export const BookList = ({ initialBooks }: BookListProps) => {
   };
 
   return (
-    <div className="wrapper">
+    <div className="book-list wrapper">
       {/* Header */}
-      <header className="header-wrapper">
-        <h1 className="header-text">
-          Book Library
-        </h1>
-        <p className="header-text-small">
-          Explore and manage your collection
-        </p>
+      <header className="header">
+        <div>
+          <h1 className="header-text">Book Library</h1>
+          <p className="header-text-small">
+            Explore and manage your collection
+          </p>
+        </div>
+        
+        {/* Add Book Button */}
+        <div className="">
+          <Button
+            onClick={handleAddBook}
+            className="btn"
+            aria-label="Add a new book to the library"
+          >
+            Add New Book
+          </Button>
+        </div>
       </header>
 
-      {/* Add Book Button */}
-      <div className="">
-        <Button
-          onClick={handleAddBook}
-          className="btn"
-          aria-label="Add a new book to the library"
-        >
-          Add New Book
-        </Button>
-      </div>
+      
 
       {/* Books Grid */}
       <div
-        className=""
+        className="items"
         role="list"
         data-label="List of books in the library"
       >
@@ -58,7 +60,7 @@ export const BookList = ({ initialBooks }: BookListProps) => {
           </div>
         ) : (
           books.map((book) => (
-            <div key={book.id} role="listitem">
+            <div className="item" key={book.id} role="listitem">
               <BookCard book={book} />
             </div>
           ))

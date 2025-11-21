@@ -1,5 +1,35 @@
-.wrapper{
-	max-width: 1200px;
+.book-list.wrapper{
+	max-width: 1440px;
 	min-width: 500px;
 	margin: 30px 16px;
+}
+.book-list{
+	.header{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 50px;
+		p{
+			padding-right: 20px;
+		}
+		div{
+			text-align: left;
+		}
+	}
+	.items{
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 20px;
+	}
+	
+}
+
+@media only screen and (max-width: 1500px) {
+	.book-list.wrapper {
+			max-width: inherit;
+			min-width: inherit;
+			margin: 20px 14px;
+		}
 }

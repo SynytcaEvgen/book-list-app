@@ -5,9 +5,9 @@ import './App.css'
 function App() {
 
   return (
-    <>
-      <BookList initialBooks={mockBooks}></BookList>z
-    </>
+    
+    <BookList initialBooks={mockBooks}></BookList>
+    
   )
 }
 

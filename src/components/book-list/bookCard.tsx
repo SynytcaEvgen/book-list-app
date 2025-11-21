@@ -2,6 +2,8 @@ import { useState } from "react";
 import {type  Book } from "@/types/book";
 import Button from "@/components/button/button";
 
+import './book-card.css'
+
 
 interface BookCardProps {
   book: Book;
@@ -9,20 +11,22 @@ interface BookCardProps {
 
 export const BookCard = ({ book }: BookCardProps) => {
   const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const toggleDescription = () => {
     setIsDescriptionVisible(!isDescriptionVisible);
   };
 
   return (
-      <div className="book-card-wrapper">
+      <div className="book-card wrapper">
         {/* Book Image */}
-        <div className="">     
+      <div className="image-wrapper">     
           <img
-            src={book.imageUrl || 'src/assets/book.svg'}
-            alt={`Cover of ${book.title}`}
-            className=""
-            loading="lazy"
+          src={book.imageUrl || 'src/assets/book.svg'}
+          alt={`Cover of ${book.title}`}
+          loading="lazy"
+          onError={() => setImageError(true)}
+          aria-label={book.imageUrl && !imageError? `Cover of ${book.title}` : "Book cover placeholder"}
           />
       
         </div>
@@ -30,9 +34,9 @@ export const BookCard = ({ book }: BookCardProps) => {
         {/* Book Content */}
         <div className="book-content-wrapper">
           <div className='card-header'>
-            <div className="card-title">
+            <h3 className="card-title">
               {book.title}
-            </div>
+            </h3>
             <div className='card-auth' >
               { book.author ? `by ${book.author}` : 'by Not found'}
             </div>
@@ -43,7 +47,7 @@ export const BookCard = ({ book }: BookCardProps) => {
           <Button
             variant="outline"
             onClick={toggleDescription}
-            className="btn"
+            className="btn btn--secondary"
             data-expanded={isDescriptionVisible}
             data-controls={`description-${book.id}`}
             children={isDescriptionVisible ? "Hide descripttion": "Show descripttion"}

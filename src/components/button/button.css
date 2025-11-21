@@ -5,7 +5,7 @@ btn {
 	border: none;
 	border-radius: 6px;
 	cursor: pointer;
-	transition: background-color 0.2s ease, transform 0.1s ease;
+	transition: all 0.5s ease-in-out;
 }
 
 .btn:active:not([disabled]) {
@@ -25,11 +25,18 @@ btn {
 
 .btn--primary:hover:not([disabled]) {
 	background-color: #0056b3;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	transition: all 0.3s ease-in-out;
 }
 
 .btn--secondary {
 	background-color: #6c757d;
 	color: white;
+}
+.btn--secondary:hover:not([disabled]) {
+	background-color: #4c5257;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	transition: all 0.3s ease-in-out;
 }
 
 .btn--secondary:hover:not([disabled]) {
@@ -43,4 +50,18 @@ btn {
 
 .btn--danger:hover:not([disabled]) {
 	background-color: #bd2130;
+}
+.btn:focus-visible{
+	outline: none;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.btn:focus{
+	outline: none;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+@media only screen and (max-width: 600px) {
+	.btn {
+		font-size: 1em;
+		min-width: 155px;
+	}
 }
