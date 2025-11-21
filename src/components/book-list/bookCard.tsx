@@ -22,7 +22,7 @@ export const BookCard = ({ book }: BookCardProps) => {
         {/* Book Image */}
       <div className="image-wrapper">     
           <img
-          src={book.imageUrl || 'src/assets/book.svg'}
+          src={book.imageUrl || 'src/book.svg'}
           alt={`Cover of ${book.title}`}
           loading="lazy"
           onError={() => setImageError(true)}
