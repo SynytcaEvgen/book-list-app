@@ -16,7 +16,7 @@ export const BookList = ({ initialBooks }: BookListProps) => {
     const newBook: Book = {
       id: `book-${Date.now()}`,
       title: `New Book ${books.length + 1}`,
-      description: "This is a newly added book. Click edit to customize the details and make it your own!",
+      description: "",
       author: "Unknown Author",
     };
 

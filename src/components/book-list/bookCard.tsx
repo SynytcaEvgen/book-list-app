@@ -11,6 +11,7 @@ interface BookCardProps {
 
 export const BookCard = ({ book }: BookCardProps) => {
   const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const toggleDescription = () => {
     setIsDescriptionVisible(!isDescriptionVisible);
@@ -19,12 +20,13 @@ export const BookCard = ({ book }: BookCardProps) => {
   return (
       <div className="book-card wrapper">
         {/* Book Image */}
-        <div className="image-wrapper">     
+      <div className="image-wrapper">     
           <img
-            src={book.imageUrl || 'src/assets/book.svg'}
-            alt={`Cover of ${book.title}`}
-            className=""
-            loading="lazy"
+          src={book.imageUrl || 'src/assets/book.svg'}
+          alt={`Cover of ${book.title}`}
+          loading="lazy"
+          onError={() => setImageError(true)}
+          aria-label={book.imageUrl && !imageError? `Cover of ${book.title}` : "Book cover placeholder"}
           />
       
         </div>
