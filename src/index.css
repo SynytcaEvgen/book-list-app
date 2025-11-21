@@ -46,9 +46,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -64,5 +62,31 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  h1{
+    font-size: 2.5em;
+    line-height: 1;
+  }
+}
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.8em;
+    line-height: 1;
+  }
+
+  p {
+    font-size: 1em;
+  }
+}
+@media only screen and (max-width: 400px) {
+  h1 {
+    font-size: 1.5em;
+    line-height: 1;
+  }
+  p{
+    font-size: 0.8em;
   }
 }
